@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="target-densitydpi=device-dpi,width=750,user-scalable=no">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="房贷计算器" name="keywords" />
+    <meta content="房贷计算器" itemprop="description" name="description" />
+    <title>房贷计算器</title>
+    <link rel="stylesheet" href="css/common.css">
+</head>
+
+<body>
+    <div class="calWrap">
+        <div class="cal_top topjianbian">
+            <div class="cal_nav displayflex">
+                <div class="cal_changenav outer_bx flexli current" data-name="benxi">等额本息</div>
+                <div class="cal_changenav outer_bj flexli" data-name="benjin">等额本金</div>
+            </div>
+            <div class="cal_result displayflex">
+                <div class="cal_resultli flexli">
+                    <div class="cal_title">参考月供(元)</div>
+                    <div class="cal_price cal_price_hook">0.00</div>
+                    <div class="cal_hktotal">还款总额(元)
+                        <span class="htotalnum">0.00万</span>
+                    </div>
+                </div>
+                <div class="cal_resultli flexli">
+                    <div class="cal_title cal_dijian"></div>
+                    <div class="cal_price cal_dijianprice"></div>
+                    <div class="cal_hktotal cal_right">支付利息(元)
+                        <span class="htotallixinum">0.00万</span>
+                    </div>
+                </div>
+            </div>
+            <div class="cal_benxiinfo">
+                <a class="cal_bxfont" id="typethml" href="#">等额本息还款详情</a>
+                <div class="cal_bxicon"></div>
+            </div>
+        </div>
+
+        <div class="cal_form">
+            <div class="cal_li border_bottom">
+                <div class="cal_leftname">贷款类型</div>
+                <div class="cal_rightselect">
+                    <select id="lanChange" class="lanchange daikuanchange">
+                        <option value="1" selected="selected">商业贷款</option>
+                        <option value="2">公积金贷款</option>
+                        <option value="3">组合贷款</option>
+                    </select>
+                    <div class="rightrow"></div>
+                </div>
+            </div>
+            <div class="cal_li border_bottom gjj_hook">
+                <div class="cal_leftname dkname" data-zuhe="公积金贷款金额">贷款金额</div>
+                <div class="cal_rightselect">
+                    <input type="tel" placeholder="请输入金额" maxlength="7" onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')"
+                        class="lannum gjjf" />
+                    <span>万</span>
+                </div>
+            </div>
+            <div class="cal_li border_bottom gjj_hook">
+                <div class="cal_leftname">贷款年限</div>
+                <div class="cal_rightselect">
+                    <select id="gjjlanyear" class="lanchange yearchange">
+                        <option value="20">20年</option>
+                    </select>
+                    <div class="rightrow"></div>
+                </div>
+            </div>
+            <div class="cal_li gjj_hook">
+                <div class="cal_leftname">公积金利率</div>
+                <div class="cal_rightselect">
+                    <select id="gjjlanlilv" class="lanchange lilvchange">
+                        <option value="0.0325">基准利率</option>
+                    </select>
+                    <div class="rightrow"></div>
+                </div>
+            </div>
+            <div class="cal_li border_bottom  shangdai_hook sdfund">
+                <div class="cal_leftname dkname" data-zuhe="商业贷款金额">贷款金额</div>
+                <div class="cal_rightselect">
+                    <input type="tel" placeholder="请输入金额" maxlength="7" onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')"
+                        class="lannum shangyef" />
+                    <span>万</span>
+                </div>
+            </div>
+            <div class="cal_li border_bottom shangdai_hook">
+                <div class="cal_leftname">贷款年限</div>
+                <div class="cal_rightselect">
+                    <select id="sylanyear" class="lanchange yearchange">
+                        <option value="20">20年</option>
+                    </select>
+                    <div class="rightrow"></div>
+                </div>
+            </div>
+            <div class="cal_li shangdai_hook">
+                <div class="cal_leftname">商贷利率</div>
+                <div class="cal_rightselect">
+                    <select id="shangyelanlilv" class="lanchange lilvchange">
+                        <option value="0.049">基准利率</option>
+                    </select>
+                    <div class="rightrow"></div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="tips">以上为央行公布的贷款基准利率，结果仅供参考</div>
+
+    </div>
+
+    <script src="js/zepto.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/calculate.js"></script>
+    <script src="js/dom.js"></script>
+</body>
+
+</html>

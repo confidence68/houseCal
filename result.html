@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="target-densitydpi=device-dpi,width=750,user-scalable=no">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="还款详情" name="keywords" />
+    <meta content="还款详情" itemprop="description" name="description" />
+    <title>还款详情</title>
+    <link rel="stylesheet" href="css/common.css">
+</head>
+
+<body>
+    <div class="infoDialog" id="infoDialog">
+        <div class="infoinner">
+            <div class="infotop topjianbian">
+                <div class="cal_nav displayflex">
+                    <div class="cal_changenav inner_bx flexli current" data-name="benxi">等额本息</div>
+                    <div class="cal_changenav inner_bj flexli" data-name="benjin">等额本金</div>
+                </div>
+                <div class="infototal displayflex">
+                    <div class="infotli flexli">
+                        <div class="name">还款总额(万)</div>
+                        <div class="price" id="totalPrice">0.00</div>
+                    </div>
+                    <div class="infotli flexli">
+                        <div class="name">总利息(万)</div>
+                        <div class="price" id="totalLixi">0.00</div>
+                    </div>
+                    <div class="infotli flexli">
+                        <div class="name">贷款总额(万)</div>
+                        <div class="price" id="totalDknum">0.00</div>
+                    </div>
+                    <div class="infotli flexli">
+                        <div class="name">贷款期限</div>
+                        <div class="price" id="totalyear">20</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tablenav">
+                <div class="tablenavinner displayflex">
+                    <div class="fixtitle flexli">期次</div>
+                    <div class="fixtitle flexli">每月本金</div>
+                    <div class="fixtitle flexli">每月利息</div>
+                    <div class="fixtitle flexli">剩余还款</div>
+                </div>
+            </div>
+            <div class="yearouter" id="yearouter">
+               
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="js/zepto.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/calculate.js"></script>
+    <script src="js/dom.js"></script>
+</body>
+
+</html>
