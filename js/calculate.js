@@ -16,14 +16,14 @@ var calcute = {
         if (type == 1) {
             var sdObj = _this.benxi(type, sdnum, sdyear, sdlilv);
             var gjjObj = _this.benxi(type, gjjnum, gjjyear, gjjlilv);
-            if (sdObj.mouthdataArray.length > gjjObj.mouthdataArray.length) {
-                var mergemouthdataArray = sdObj.mouthdataArray.map(function (item, index) {
-                    if (index < gjjObj.mouthdataArray.length) {
+            if (sdObj.monthdataArray.length > gjjObj.monthdataArray.length) {
+                var mergemonthdataArray = sdObj.monthdataArray.map(function (item, index) {
+                    if (index < gjjObj.monthdataArray.length) {
                         return {
                             monthName: item.monthName,
-                            yuelixi: item.yuelixi + gjjObj.mouthdataArray[index].yuelixi,
-                            yuebenjin: item.yuebenjin + gjjObj.mouthdataArray[index].yuebenjin,
-                            leftFund: item.leftFund + gjjObj.mouthdataArray[index].leftFund
+                            yuelixi: item.yuelixi + gjjObj.monthdataArray[index].yuelixi,
+                            yuebenjin: item.yuebenjin + gjjObj.monthdataArray[index].yuebenjin,
+                            leftFund: item.leftFund + gjjObj.monthdataArray[index].leftFund
                         }
                     } else {
                         return {
@@ -36,13 +36,13 @@ var calcute = {
 
                 })
             } else {
-                var mergemouthdataArray = gjjObj.mouthdataArray.map(function (item, index) {
-                    if (index < sdObj.mouthdataArray.length) {
+                var mergemonthdataArray = gjjObj.monthdataArray.map(function (item, index) {
+                    if (index < sdObj.monthdataArray.length) {
                         return {
                             monthName: item.monthName,
-                            yuelixi: item.yuelixi + sdObj.mouthdataArray[index].yuelixi,
-                            yuebenjin: item.yuebenjin + sdObj.mouthdataArray[index].yuebenjin,
-                            leftFund: item.leftFund + sdObj.mouthdataArray[index].leftFund
+                            yuelixi: item.yuelixi + sdObj.monthdataArray[index].yuelixi,
+                            yuebenjin: item.yuebenjin + sdObj.monthdataArray[index].yuebenjin,
+                            leftFund: item.leftFund + sdObj.monthdataArray[index].leftFund
                         }
                     } else {
                         return {
@@ -58,7 +58,7 @@ var calcute = {
                 yuegong: sdObj.yuegong + gjjObj.yuegong,
                 totalLixi: sdObj.totalLixi + gjjObj.totalLixi,
                 totalPrice: sdObj.totalPrice + gjjObj.totalPrice,
-                mouthdataArray: mergemouthdataArray,
+                monthdataArray: mergemonthdataArray,
                 totalDknum: parseFloat(sdObj.totalDknum) + parseFloat(gjjObj.totalDknum),
                 year: year
             }
@@ -66,14 +66,14 @@ var calcute = {
         } else if (type == 2) {
             var sdObj = _this.benjin(type, sdnum, sdyear, sdlilv);
             var gjjObj = _this.benjin(type, gjjnum, gjjyear, gjjlilv);
-            if (sdObj.mouthdataArray.length > gjjObj.mouthdataArray.length) {
-                var mergemouthdataArray = sdObj.mouthdataArray.map(function (item, index) {
-                    if (index < gjjObj.mouthdataArray.length) {
+            if (sdObj.monthdataArray.length > gjjObj.monthdataArray.length) {
+                var mergemonthdataArray = sdObj.monthdataArray.map(function (item, index) {
+                    if (index < gjjObj.monthdataArray.length) {
                         return {
                             monthName: item.monthName,
-                            yuelixi: item.yuelixi + gjjObj.mouthdataArray[index].yuelixi,
-                            yuebenjin: item.yuebenjin + gjjObj.mouthdataArray[index].yuebenjin,
-                            leftFund: item.leftFund + gjjObj.mouthdataArray[index].leftFund
+                            yuelixi: item.yuelixi + gjjObj.monthdataArray[index].yuelixi,
+                            yuebenjin: item.yuebenjin + gjjObj.monthdataArray[index].yuebenjin,
+                            leftFund: item.leftFund + gjjObj.monthdataArray[index].leftFund
                         }
                     } else {
                         return {
@@ -86,13 +86,13 @@ var calcute = {
 
                 })
             } else {
-                var mergemouthdataArray = gjjObj.mouthdataArray.map(function (item, index) {
-                    if (index < sdObj.mouthdataArray.length) {
+                var mergemonthdataArray = gjjObj.monthdataArray.map(function (item, index) {
+                    if (index < sdObj.monthdataArray.length) {
                         return {
                             monthName: item.monthName,
-                            yuelixi: item.yuelixi + sdObj.mouthdataArray[index].yuelixi,
-                            yuebenjin: item.yuebenjin + sdObj.mouthdataArray[index].yuebenjin,
-                            leftFund: item.leftFund + sdObj.mouthdataArray[index].leftFund
+                            yuelixi: item.yuelixi + sdObj.monthdataArray[index].yuelixi,
+                            yuebenjin: item.yuebenjin + sdObj.monthdataArray[index].yuebenjin,
+                            leftFund: item.leftFund + sdObj.monthdataArray[index].leftFund
                         }
                     } else {
                         return {
@@ -111,7 +111,7 @@ var calcute = {
                 yuegongdijian: sdObj.yuegongdijian + gjjObj.yuegongdijian,
                 totalDknum: parseFloat(sdObj.totalDknum) + parseFloat(gjjObj.totalDknum),
                 year: year,
-                mouthdataArray: mergemouthdataArray
+                monthdataArray: mergemonthdataArray
             }
         }
 
@@ -119,24 +119,24 @@ var calcute = {
     //等额本息计算
     benxi: function (type, num, year, lilv) {
         //每月月供额=〔贷款本金×月利率×(1＋月利率)＾还款月数〕÷〔(1＋月利率)＾还款月数-1〕
-        var mouth = parseInt(year) * 12,
-            mouthlilv = parseFloat(lilv) / 12,
+        var month = parseInt(year) * 12,
+            monthlilv = parseFloat(lilv) / 12,
             dknum = parseFloat(num) * 10000;
         //每月月供
-        var yuegong = (dknum * mouthlilv * Math.pow((1 + mouthlilv), mouth)) / (Math.pow((1 + mouthlilv), mouth) - 1);
+        var yuegong = (dknum * monthlilv * Math.pow((1 + monthlilv), month)) / (Math.pow((1 + monthlilv), month) - 1);
         //总利息=还款月数×每月月供额-贷款本金
-        var totalLixi = mouth * yuegong - dknum;
+        var totalLixi = month * yuegong - dknum;
         //还款总额 总利息+贷款本金
         var totalPrice = totalLixi + dknum,
             leftFund = totalLixi + dknum;
 
         //循环月份
-        var mouthdataArray = [],
-            nowmouth = new Date().getMonth(),
+        var monthdataArray = [],
+            nowmonth = new Date().getMonth(),
             realmonth = 0;
 
-        for (var i = 1; i <= mouth; i++) {
-            realmonth = nowmouth + i;
+        for (var i = 1; i <= month; i++) {
+            realmonth = nowmonth + i;
             var yearlist = Math.floor(i / 12);
 
             realmonth = realmonth - 12 * yearlist;
@@ -146,14 +146,14 @@ var calcute = {
             }
             //console.log(realmonth)
             //每月应还利息=贷款本金×月利率×〔(1+月利率)^还款月数-(1+月利率)^(还款月序号-1)〕÷〔(1+月利率)^还款月数-1〕
-            var yuelixi = dknum * mouthlilv * (Math.pow((1 + mouthlilv), mouth) - Math.pow((1 + mouthlilv), i - 1)) / (Math.pow((1 + mouthlilv), mouth) - 1);
+            var yuelixi = dknum * monthlilv * (Math.pow((1 + monthlilv), month) - Math.pow((1 + monthlilv), i - 1)) / (Math.pow((1 + monthlilv), month) - 1);
             //每月应还本金=贷款本金×月利率×(1+月利率)^(还款月序号-1)÷〔(1+月利率)^还款月数-1〕
-            var yuebenjin = dknum * mouthlilv * Math.pow((1 + mouthlilv), i - 1) / (Math.pow((1 + mouthlilv), mouth) - 1);
+            var yuebenjin = dknum * monthlilv * Math.pow((1 + monthlilv), i - 1) / (Math.pow((1 + monthlilv), month) - 1);
             leftFund = leftFund - (yuelixi + yuebenjin);
             if (leftFund < 0) {
                 leftFund = 0
             }
-            mouthdataArray[i - 1] = {
+            monthdataArray[i - 1] = {
                 monthName: realmonth + "月",
                 yuelixi: yuelixi,
                 yuebenjin: yuebenjin,
@@ -165,36 +165,36 @@ var calcute = {
             yuegong: yuegong,
             totalLixi: totalLixi,
             totalPrice: totalPrice,
-            mouthdataArray: mouthdataArray,
+            monthdataArray: monthdataArray,
             totalDknum: num,
             year: year
         };
     },
     //等额本金计算
     benjin: function (type, num, year, lilv) {
-        var mouth = parseInt(year) * 12,
-            mouthlilv = parseFloat(lilv) / 12,
+        var month = parseInt(year) * 12,
+            monthlilv = parseFloat(lilv) / 12,
             dknum = parseFloat(num) * 10000,
             yhbenjin = 0; //首月还款已还本金金额是0
         //每月应还本金=贷款本金÷还款月数
-        var everymonthyh = dknum / mouth
+        var everymonthyh = dknum / month
         //每月月供额=(贷款本金÷还款月数)+(贷款本金-已归还本金累计额)×月利率
-        var yuegong = everymonthyh + (dknum - yhbenjin) * mouthlilv;
+        var yuegong = everymonthyh + (dknum - yhbenjin) * monthlilv;
         //每月月供递减额=每月应还本金×月利率=贷款本金÷还款月数×月利率
-        var yuegongdijian = everymonthyh * mouthlilv;
+        var yuegongdijian = everymonthyh * monthlilv;
         //总利息=〔(总贷款额÷还款月数+总贷款额×月利率)+总贷款额÷还款月数×(1+月利率)〕÷2×还款月数-总贷款额
-        var totalLixi = ((everymonthyh + dknum * mouthlilv) + dknum / mouth * (1 + mouthlilv)) / 2 * mouth - dknum;
+        var totalLixi = ((everymonthyh + dknum * monthlilv) + dknum / month * (1 + monthlilv)) / 2 * month - dknum;
         //还款总额 总利息+贷款本金
         var totalPrice = totalLixi + dknum,
             leftFund = totalLixi + dknum;
 
         //循环月份
-        var mouthdataArray = [],
-            nowmouth = new Date().getMonth(),
+        var monthdataArray = [],
+            nowmonth = new Date().getMonth(),
             realmonth = 0;
 
-        for (var i = 1; i <= mouth; i++) {
-            realmonth = nowmouth + i;
+        for (var i = 1; i <= month; i++) {
+            realmonth = nowmonth + i;
             var yearlist = Math.floor(i / 12);
 
             realmonth = realmonth - 12 * yearlist;
@@ -203,14 +203,14 @@ var calcute = {
                 realmonth = realmonth - 12
             }
             yhbenjin = everymonthyh * (i - 1);
-            var yuebenjin = everymonthyh + (dknum - yhbenjin) * mouthlilv;
+            var yuebenjin = everymonthyh + (dknum - yhbenjin) * monthlilv;
             //每月应还利息=剩余本金×月利率=(贷款本金-已归还本金累计额)×月利率
-            var yuelixi = (dknum - yhbenjin) * mouthlilv;
+            var yuelixi = (dknum - yhbenjin) * monthlilv;
             leftFund = leftFund - yuebenjin;
             if (leftFund < 0) {
                 leftFund = 0
             }
-            mouthdataArray[i - 1] = {
+            monthdataArray[i - 1] = {
                 monthName: realmonth + "月",
                 yuelixi: yuelixi,
                 //每月本金
@@ -224,7 +224,7 @@ var calcute = {
             totalLixi: totalLixi,
             totalPrice: totalPrice,
             yuegongdijian: yuegongdijian,
-            mouthdataArray: mouthdataArray,
+            monthdataArray: monthdataArray,
             totalDknum: num,
             year: year
         }
