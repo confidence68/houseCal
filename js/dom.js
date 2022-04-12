@@ -297,7 +297,7 @@ var domOperate = {
         var totalPrice = _this.formatCurrency(data.totalPrice / 10000); //万元转换
         var totalLixi = _this.formatCurrency(data.totalLixi / 10000); //万元转换
         var totalDknum = _this.formatCurrency(data.totalDknum);
-        var mouthdataArray = data.mouthdataArray;
+        var monthdataArray = data.monthdataArray;
         $(".cal_price_hook").html(yuegong);
         $(".htotalnum").html(totalPrice + "万");
         $(".htotallixinum").html(totalLixi + "万");
@@ -323,7 +323,7 @@ var domOperate = {
                 yeartitleHtml = "",
                 mouthliArray = [],
                 yearflag = 1;
-            mouthdataArray.forEach(function (item, index) {
+            monthdataArray.forEach(function (item, index) {
                 var pushnum = parseInt(item.monthName);
 
                 mouthliArray[index] = '<div class="mouthli displayflex border_bottom">' +
@@ -372,7 +372,7 @@ var domOperate = {
                 sdlilv = _this.getQueryString("sdlilv");
 
             var ressdobj = calcute.singleDk(type, sdnum, sdyear, sdlilv);
-            //console.log(resobj);
+            // console.log(ressdobj);
             _this.domOperates(type, ressdobj);
 
         } else if (loantype == "2") {
@@ -382,7 +382,7 @@ var domOperate = {
                 gjjlilv = _this.getQueryString("gjjlilv");
 
             var resgjjobj = calcute.singleDk(type, gjjnum, gjjyear, gjjlilv);
-            //console.log(resobj);
+            // console.log(resgjjobj);
             _this.domOperates(type, resgjjobj);
         } else if (loantype == "3") {
             var type = type || _this.getQueryString("type"),
@@ -393,7 +393,7 @@ var domOperate = {
                 sdyear = _this.getQueryString("sdyear"),
                 sdlilv = _this.getQueryString("sdlilv");
             var reszhobj = calcute.zuhe(type, sdnum, gjjnum, sdyear, gjjyear, sdlilv, gjjlilv);
-            //console.log(resobj);
+            // console.log(reszhobj);
             _this.domOperates(type, reszhobj);
         }
     },
